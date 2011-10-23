@@ -1,0 +1,87 @@
+
+<!-- There are JavaScript sample codes in bottom. -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery.gpHatebuCounter</title>
+  <style type="text/css">
+body {
+    font-family: "Times", "Times New Roman", serif;
+}
+pre {
+    background-color: #fffff0;
+    border: ridge 2px;
+    display: inline-block;
+    font-family: 'Courier', 'Courier New', monospace;
+    padding: 1em;
+}
+
+/* WordPressの「最近の投稿」っぽいやつ */
+.widget_recent_entries {
+    border: solid 1px #999;
+    font-size: 12px;
+    margin: 2em;
+    width: 200px;
+}
+.widget_recent_entries p {
+    background-color: #eee;
+    border-bottom: solid 1px #999;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+.widget_recent_entries ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.widget_recent_entries a {
+    color: #00f;
+    display: block;
+    padding: .5em;
+}
+.widget_recent_entries a:hover {
+    background-color: #fee;
+    color: #f00;
+}
+.widget_recent_entries a.gphatebucounter {
+    text-align: right;
+}
+  </style>
+</head>
+<body>
+  <h1>jQuery.gpHatebuCounter</h1>
+  <div id="main">
+    <p>はてブ数を表示します。</p>
+    <p>for: IE 6+, Firefox, Chrome, Safari, Opera</p>
+    <pre>$(elem).gpHatebuCounter();</pre>
+    <p>
+      サンプルコードはこのHTMLのソースに書いています。<br />
+      詳しくはこちら: <a href="http://ginpen.com/jquery/gphatebucounter/">Ginpen.com</a>.
+    </p>
+  </div>
+  <ul id="links">
+    <li><a href="http://ginpen.com/2011/10/12/jquery-attr-prop/">CSSは分かるけどjQueryは苦手……という人が .attr()と .prop()に親しんでくれるといいなーと思って書きました。</a></li>
+      <li><a href="http://ginpen.com/2011/08/22/download-ie-series/">IE7, IE8, IE9とかのダウンロードページまとめ。</a></li>
+    <li>文章の途中の<a href="http://ginpen.com">リンク</a>も大丈夫。</li>
+  </ul>
+  <div class="widget_recent_entries">
+    <p>最近の投稿(WordPress風)</p>
+    <ul>
+      <li><a href="http://ginpen.com/2011/05/20/jquery-1-6-1/">jQuery1.6のattr()で困ったら、1.6.1にすればいいみたい。</a></li>
+    <li><a href="http://ginpen.com/2011/05/04/jquery1-6/">jQuery1.6の更新内容をまとめたよ。</a></li>
+    </ul>
+  </div>
+  <div>
+    <script src="jquery-1.6.2.min.js"></script>
+    <script src="../jquery.gphatebucounter-1.0.js"></script>
+    <script src="../jquery.gphatebucounter.wp.js"></script>
+    <script>
+$(function() {
+  $('#links a').gpHatebuCounter();
+});
+    </script>
+  </div>
+</body>
+</html>
