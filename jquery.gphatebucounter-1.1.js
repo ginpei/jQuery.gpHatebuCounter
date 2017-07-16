@@ -1,13 +1,13 @@
 /**
- * jQuery.gpHatebuCounter 1.0
- * http://ginpen.com/jquery/gphatebucounter/
+ * jQuery.gpHatebuCounter 1.1
+ * https://ginpen.com/jquery/gphatebucounter/
  * https://github.com/ginpei/jQuery.gpHatebuCounter
  *
  * Copyright (c) 2011 Takanashi Ginpei
- * http://ginpen.com
+ * https://ginpen.com
  *
  * Released under the MIT License.
- * http://www.opensource.org/licenses/mit-license.php
+ * https://www.opensource.org/licenses/mit-license.php
  */
 ;(function($) {
     try {
@@ -206,7 +206,7 @@
             var targetUrl = this._getTargetUrl($el);
 
             return [
-                'http://b.hatena.ne.jp/entry/image/',
+                'https://b.hatena.ne.jp/entry/image/',
                 (size ? size + '/' : ''),
                 targetUrl
             ].join('');
@@ -232,7 +232,7 @@
         _getLinkUrl: function($el, settings) {
             var targetUrl = this._getTargetUrl($el);
 
-            return 'http://b.hatena.ne.jp/entry/' + targetUrl;
+            return 'https://b.hatena.ne.jp/entry/' + targetUrl;
         },
 
         banpei: null

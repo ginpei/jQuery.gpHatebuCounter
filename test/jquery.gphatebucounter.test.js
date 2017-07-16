@@ -19,7 +19,7 @@ test('check target', function() {
 });
 
 test('get target url', function() {
-  equal(gpHatebuCounter._getTargetUrl($('<a href="http://example.com/" />')), 'http://example.com/', 'full');
+  equal(gpHatebuCounter._getTargetUrl($('<a href="https://example.com/" />')), 'https://example.com/', 'full');
   equal(gpHatebuCounter._getTargetUrl($('<a href="/" />')), origin, 'own root');
   equal(gpHatebuCounter._getTargetUrl($('<a href="##" />')), origin + location.pathname.slice(1) + '%23%23', 'hash');
 });
@@ -52,12 +52,12 @@ test('check position', function() {
 });
 
 test('build element', function() {
-  var $el = gpHatebuCounter.build($('<a href="http://example.com/" />'));
+  var $el = gpHatebuCounter.build($('<a href="https://example.com/" />'));
   ok($el.hasClass('gphatebucounter'), 'typical');
   ok($el.is('a'), 'typical');
   ok($el.children().is('img'), 'typical');
 
-  var $el = gpHatebuCounter.build($('<a href="http://example.com/" />'), { link: false });
+  var $el = gpHatebuCounter.build($('<a href="https://example.com/" />'), { link: false });
   ok($el.hasClass('gphatebucounter'), 'typical');
   ok($el.is('img'), 'link');
 });
@@ -66,10 +66,10 @@ test('insert', function() {
 });
 
 test('build img element', function() {
-  var $el = gpHatebuCounter._buildImg($('<a href="http://example.com/" />'));
+  var $el = gpHatebuCounter._buildImg($('<a href="https://example.com/" />'));
   equal(
     $el.attr('src'),
-    'http://b.hatena.ne.jp/entry/image/http://example.com/',
+    'https://b.hatena.ne.jp/entry/image/https://example.com/',
     'typical');
   equal(
     $el.css('border-width'),
@@ -79,28 +79,28 @@ test('build img element', function() {
 
 test('get image url', function() {
   equal(
-    gpHatebuCounter._getImageUrl($('<a href="http://example.com/" />')),
-    'http://b.hatena.ne.jp/entry/image/http://example.com/',
+    gpHatebuCounter._getImageUrl($('<a href="https://example.com/" />')),
+    'https://b.hatena.ne.jp/entry/image/https://example.com/',
     'typical');
 
   equal(
-    gpHatebuCounter._getImageUrl($('<a href="http://example.com/" />'), { size: 'large' }),
-    'http://b.hatena.ne.jp/entry/image/large/http://example.com/',
+    gpHatebuCounter._getImageUrl($('<a href="https://example.com/" />'), { size: 'large' }),
+    'https://b.hatena.ne.jp/entry/image/large/https://example.com/',
     'size');
 });
 
 test('build a element', function() {
-  var $el = gpHatebuCounter._buildLink($('<a href="http://example.com/" />'));
+  var $el = gpHatebuCounter._buildLink($('<a href="https://example.com/" />'));
   equal(
     $el.attr('href'),
-    'http://b.hatena.ne.jp/entry/http://example.com/',
+    'https://b.hatena.ne.jp/entry/https://example.com/',
     'typical');
 });
 
 test('get bookmark page url', function() {
   equal(
-    gpHatebuCounter._getLinkUrl($('<a href="http://example.com/" />')),
-    'http://b.hatena.ne.jp/entry/http://example.com/',
+    gpHatebuCounter._getLinkUrl($('<a href="https://example.com/" />')),
+    'https://b.hatena.ne.jp/entry/https://example.com/',
     'typical');
 });
 
@@ -109,27 +109,27 @@ module('jQuery interface');
 
 test('typical', function() {
   var $container = $('<div />');
-  var $link1 = $('<a href="http://example.com/">text</a>').appendTo($container);
-  var $link2 = $('<a href="http://example.net/">text</a>').appendTo($container);
+  var $link1 = $('<a href="https://example.com/">text</a>').appendTo($container);
+  var $link2 = $('<a href="https://example.net/">text</a>').appendTo($container);
   $container.children().gpHatebuCounter();
   equal($container.children().length, 4, 'typical');
-  equal($link1.next().attr('href'), 'http://b.hatena.ne.jp/entry/http://example.com/', 'typical');
-  equal($link2.next().attr('href'), 'http://b.hatena.ne.jp/entry/http://example.net/', 'typical');
+  equal($link1.next().attr('href'), 'https://b.hatena.ne.jp/entry/https://example.com/', 'typical');
+  equal($link2.next().attr('href'), 'https://b.hatena.ne.jp/entry/https://example.net/', 'typical');
 
   var $container = $('<div />');
-  var $link = $('<a href="http://example.com/">text</a>').appendTo($container);
+  var $link = $('<a href="https://example.com/">text</a>').appendTo($container);
   $link.gpHatebuCounter({ before: true });
-  equal($container.children().eq(0).attr('href'), 'http://b.hatena.ne.jp/entry/http://example.com/', 'before');
+  equal($container.children().eq(0).attr('href'), 'https://b.hatena.ne.jp/entry/https://example.com/', 'before');
 
   var $container = $('<div />');
-  var $link = $('<a href="http://example.com/">text</a>').appendTo($container);
+  var $link = $('<a href="https://example.com/">text</a>').appendTo($container);
   $link.gpHatebuCounter({
     link: false
   });
   ok($link.children().eq(0).is('img'), 'link');
 
   var $container = $('<div />');
-  var $link = $('<a href="http://example.com/">text</a>').appendTo($container);
+  var $link = $('<a href="https://example.com/">text</a>').appendTo($container);
   $link.gpHatebuCounter({
     link: false,
     outside: true
